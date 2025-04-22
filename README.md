@@ -1,5 +1,9 @@
 Site simples para consultar as principais ligas de league of legends competitivo, histórico das partidas, players e etc...
 
+obs: Apenas cole a url no navegador
+Link de Acesso ao site: https://web-production-de1c.up.railway.app
+
+
 Home:
 ![image](https://github.com/user-attachments/assets/e508775c-81a1-40cb-91f4-21e6938b6366)
 
