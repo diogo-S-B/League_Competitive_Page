@@ -1,0 +1,111 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTA Sul</title>
+    <link rel="stylesheet" href="{% static 'css/sulstyle.css' %}">
+
+</head>
+<body>
+    <!-- <ul class="teamlist">
+        <ul>{{listas.0.0}}</ul>
+        <ul>{{listas.0.1}}</ul>
+        <ul>{{listas.0.2}}</ul>
+        <ul>{{listas.0.3}}</ul>
+        <ul>{{listas.0.4}}</ul>
+        <ul>{{listas.0.5}}</ul>
+        <ul>{{listas.0.6}}</ul>
+        <ul>{{listas.0.7}}</ul>
+        <ul>{{listas.0.8}}</ul>
+        <ul>{{listas.0.9}}</ul>
+        <ul>{{listas.0.10}}</ul>
+        <ul>{{listas.0.11}}</ul>
+        <ul>{{listas.0.12}}</ul>
+        <ul>{{listas.0.13}}</ul>
+        <ul>{{listas.0.14}}</ul>
+        <ul>{{listas.0.15}}</ul> -->
+    <!-- </ul>  -->
+
+    <nav>
+        <h1>League Stats</h1>
+        <ul class="navul">
+            <li class="navli"><a href="#">Home</a></li>
+            <li class="navli"><a href="#">Pesquisar</a></li>
+            <li class="navli"><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+     <div class="container">
+        <div class="teams">
+            <ul class="teamlist">
+                 {% for item in listas.Teams.0 %}
+                    <li class="team"><img class="team_img" src= "{{item.1 }}" alt="">  {{item.0}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="schedule">
+            <div class="bracket">
+                <div class="round">
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.4.0}} <div class="score" style="color: #26de81;">2</div></div>
+                        <div class="competitor">{{listas.Teams.0.1.0}} <div class="score" style="color: #ff4e50;">0</div></div>
+                    </div>
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.2.0}} <div class="score" style="color: #26de81;">2</div></div>
+                        <div class="competitor">{{listas.Teams.0.0.0}} <div class="score" style="color: #ff4e50;">1</div ></div>
+                    </div>
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.6.0}} <div class="score" style="color: #ff4e50;">1</div></div>
+                        <div class="competitor">{{listas.Teams.0.4.0}} <div class="score" style="color: #26de81;">2</div></div>
+                    </div>
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.7.0}} <div class="score" style="color: #26de81;">2</div></div>
+                        <div class="competitor">{{listas.Teams.0.3.0}} <div class="score" style="color: #ff4e50;">1</div></div>
+                    </div>
+                </div>
+                <div class="round">
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.5.0}} <div class="score" style="color: #ff4e50;">1</div></div>
+                        <div class="competitor">{{listas.Teams.0.2.0}} <div class="score" style="color: #26de81;">2</div></div>
+                    </div>
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.4.0}} <div class="score" style="color: #26de81;">2</div></div>
+                        <div class="competitor">{{listas.Teams.0.7.0}} <div class="score" style="color: #ff4e50;">1</div></div>
+                    </div>
+                </div>
+    
+                <div class="round">
+                    <div class="match winner">
+                        <div class="competitor">{{listas.Teams.0.2.0}} <div class="score" style="color: #26de81;">1</div></div>
+                        <div class="competitor">{{listas.Teams.0.4.0}} <div class="score" style="color: #ff4e50;">0</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="lowerbracket">
+                <div class="round lowerfinal">
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.0.0}}<div class="score" style="color: #ff4e50;">1</div></div>
+                        <div class="competitor">{{listas.Teams.0.7.0}}<div class="score" style="color: #26de81;">2</div></div>
+                    </div>
+                    <div class="match">
+                        <div class="competitor">{{listas.Teams.0.3.0}}<div class="score" style="color: #26de81;">2</div></div>
+                        <div class="competitor">{{listas.Teams.0.5.0}}<div class="score" style="color: #ff4e50;">1</div></div>
+                    </div>
+                </div>
+                <div class="round">
+                    <div class="match">
+                        <div class="competitor" >{{listas.Teams.0.7.0}} <div class="score" style="color: #ff4e50;">0</div></div>
+                        <div class="competitor">{{listas.Teams.0.3.0}} <div class="score" style="color: #26de81;">1</div></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

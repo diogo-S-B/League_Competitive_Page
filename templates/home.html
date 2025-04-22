@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{% static 'home.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+    <link rel="shortcut icon" href="{% static 'League_icons/LSicon.ico' %}" type="image/x-icon">
+
+    
+
+</head>
+
+<body>
+    <nav>
+        <h1>League Stats</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Pesquisar</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <form action="{% url 'ltasul' %}" method="post">
+            {% csrf_token %}
+            <div class="search_bar">
+                <input type="text" name="teamname">
+                <button id="btn_search"><i class='bx bx-search'></i></button>
+                {%if messages%}
+                    {%for message in messages%}
+                        {%if message.tags == 'error' %}
+                            <div class="team_error" role="alert">
+                                {{message}}
+                            </div>
+                        {%endif%}
+                    {%endfor%}
+                {%endif%}
+            </div>
+        </form>
+        <div class="container">
+            <a href="{% url 'ltasouth' %}" class="teste"><div class="ligas"><img src="{% static 'League_banner/ltasul_banner.jpg' %}" alt="LTASOUTH"></div></a>
+            <a href="{% url 'ltanorth' %}" class="teste"><div class="ligas"><img src="{% static 'League_banner/ltanorte_banner.jpg' %}" alt="LTANORTH"></div></a>
+            <a href="{% url 'lck' %}" class="teste"><div class="ligas"><img src="{% static 'League_banner/LCK_banner.png' %}" alt="LCK"></div></a>
+            <a href="{% url 'lpl' %}" class="teste"><div class="ligas"><img src="{% static 'League_banner/lpl_banner.png' %}" alt="LPL"></div></a>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

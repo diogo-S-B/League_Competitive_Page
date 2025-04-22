@@ -1,0 +1,83 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+</head>
+<body>
+    <nav>
+        <h1>League Stats</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Pesquisar</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <img class="team_img" src= "{{listas.Team_Images.0}}" alt="">
+            <div class="content">
+                <div class="imgs">
+                    <div class="player">
+                        <img class="player_img top" src= "{{ listas.Player_Images.0.4 }}" alt="">
+                        <h3>{{ listas.Player_Names.0.4.0}}</h3>
+                        <img class="role_icon" src="{% static 'Position_icons/top_icon.png' %}" alt="">
+                    </div>
+
+                    <div class="player">
+                        <img class="player_img jg" src= "{{ listas.Player_Images.0.1 }}" alt="">
+                        <h3>{{ listas.Player_Names.0.1.0}}</h3>
+                        <img class="role_icon" src="{% static 'Position_icons/jg_icon.png' %}" alt="">
+                    </div>
+
+                    <div class="player"><img class="player_img mid" src= "{{ listas.Player_Images.0.2 }}" alt=""><h3>{{ listas.Player_Names.0.2.0}}</h3>
+                        <img class="role_icon" src="{% static 'Position_icons/mid_icon.png' %}" alt="">
+                    </div>
+
+                    <div class="player"><img class="player_img adc" src= "{{ listas.Player_Images.0.0 }}" alt="">
+                        <h3>{{ listas.Player_Names.0.0.0}}</h3><img class="role_icon" src="{% static 'Position_icons/adc_icon.png' %}" alt="">
+                    </div>
+
+                    <div class="player"><img class="player_img sup" src= "{{ listas.Player_Images.0.3 }}" alt="">
+                        <h3>{{ listas.Player_Names.0.3.0}}</h3><img class="role_icon" src="{% static 'Position_icons/sup_icon.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="match_history">
+                    <h1> Últimas 5 partidas: </h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Lado Azul</th>
+                                <th>Placar</th>
+                                <th>Lado Vermelho</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in listas.Times %}
+                            <tr>
+                                <td>{{ item.0 }}</td> <!-- Nome do primeiro time -->
+                                <td>{{ item.3 }}</td> <!-- Placar da partida -->
+                                <td>{{ item.1 }}</td> <!-- Nome do segundo time -->
+                                {%if item.4 == 'Derrota'%}
+                                    <td style="color: #ff4e50;">{{ item.4 }}</td> <!-- Resultado -->
+                                {%endif%}
+                                {%if item.4 == 'Vitória'%}
+                                    <td style="color: #26de81;">{{item.4 }}</td>
+                                {%endif%}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

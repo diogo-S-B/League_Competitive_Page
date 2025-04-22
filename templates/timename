@@ -1,0 +1,43 @@
+if request.method == 'POST':
+teamname = request.POST.get('teamname', None)
+
+print(teamname)
+
+date = "2025-01-25"
+date = dt.datetime.strptime(date, "%Y-%m-%d").date()
+
+site = EsportsClient("lol")
+response = site.cargo_client.query(
+tables= "MatchSchedule=MS, Tournaments=T",
+join_on= "MS.OverviewPage = T.OverviewPage",
+fields="T.Name=Tournament, MS.Team1, MS.Team2, MS.Winner, MS.Team1Score, MS.Team2Score",
+where="T.Name = 'LTA South 2025 Split 1'",
+order_by = "MS.DateTime_UTC ASC",)
+
+
+
+li = []
+listas = {"Times": []}
+lista = []
+for c in response: 
+
+time1 = c["Team1"]
+time2 = c["Team2"]
+
+gg = c["Winner"]
+li.append(time2)
+# print(time1, "vs", time2)
+# print("Winner:", time1 if c["Winner"] == "1" else time2)
+# print("Score:", c["Team1Score"], "-", c["Team2Score"])
+
+# for c in response:
+#     if c["Tournament"] == 'LTA South 2025 Split 1':
+#         print(c)
+
+
+t = set(li)
+
+for c in t:
+lista.append(c)
+
+return render(request, "sul.html", {'lista': lista})
